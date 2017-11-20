@@ -3,3 +3,6 @@ springboot/src/test/java/zl/springboot/AppTest.java
 springboot/.project
 springboot/.classpath
 springboot/.gitignore
+mybatisPaging/target/
+mybatisPaging/.settings/org.eclipse.m2e.core.prefs
+mybatisPaging/.settings/

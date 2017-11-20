@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds">
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <logger name="org.springframework.web" level="DEBUG"/>
+    
+    <appender name="STUDIO" class="ch.qos.logback.core.ConsoleAppender">
+    	<encoder>   
+	      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>   
+	    </encoder>
+    </appender>
+
+	
+	
+	<appender name="sqlAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logs/mybatisStatement.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	        <fileNamePattern>logs/webService.%d{yyyy-MM-dd}.log</fileNamePattern>
+	    </rollingPolicy>	
+	    <encoder>
+	        <pattern>%d{yyyy-MM-dd HH:mm:ss} -%msg%n</pattern>
+	    </encoder>	 
+	</appender>
+	
+	
+	
+    <logger name="zl.mapper" level="DEBUG">
+    	<appender-ref ref="sqlAppender" />
+    </logger>
+    
+    
+	<root level="info">
+		<appender-ref ref="FILE"/>
+	</root>
+	
+</configuration>
